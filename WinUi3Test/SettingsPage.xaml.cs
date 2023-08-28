@@ -28,10 +28,12 @@ namespace WinUi3Test {
 
         //private ObservableCollection<String> _mylist = new() { "first", "second" };
         //public ObservableCollection<String> MyList { get => _mylist; set => SetProperty(ref _mylist, value); }
+        public ListData MyContext { get; set; } = new ListData();
+
 
         public SettingsPage() {
             this.InitializeComponent();
-            this.DataContext = new ListData();
+            //this.DataContext = new ListData();
         }
 
 
@@ -48,11 +50,13 @@ namespace WinUi3Test {
 
         private static int i = 0;
         private void Button_Click(object sender, RoutedEventArgs e) {
-            (DataContext as ListData)?.MyList.Add("next" + i++);
+            //(DataContext as ListData)?.MyList.Add(new MyLine() { TheValue = "next" + i++ });
+            MyContext.MyList.Add(new MyLine() { TheValue = "next" + i++ }); ;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) {
-            (DataContext as ListData)?.MyList.Clear();
+            //(DataContext as ListData)?.MyList.Clear();
+            MyContext.MyList.Clear();
         }
     }
 }

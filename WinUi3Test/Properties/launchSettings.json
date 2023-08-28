@@ -3,7 +3,7 @@
     "WinUi3Test (Package)": {
       "commandName": "MsixPackage",
       "nativeDebugging": true,
-      "doNotLaunchApp": true
+      "doNotLaunchApp": false
     },
     "WinUi3Test (Unpackaged)": {
       "commandName": "Project"

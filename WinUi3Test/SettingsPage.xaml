@@ -6,14 +6,23 @@
     xmlns:local="using:WinUi3Test"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:labs="using:CommunityToolkit.WinUI.Controls"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:system="using:System"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <labs:SettingsExpander Header="My String List" HeaderIcon="PreviewLink" ItemsSource="{Binding Path=MyList,  Mode=TwoWay}"  MinWidth="200">
+            <labs:SettingsExpander Header="My String List" HeaderIcon="PreviewLink" ItemsSource="{x:Bind MyContext.MyList,  Mode=TwoWay}"  MinWidth="200">
+                <labs:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="local:MyLine">
+                        <TextBlock Text="{x:Bind TheValue}" >
+                        </TextBlock>
+                    </DataTemplate>
+                </labs:SettingsExpander.ItemTemplate>
             </labs:SettingsExpander>
 
             <Button Content="ADD" Click="Button_Click" />

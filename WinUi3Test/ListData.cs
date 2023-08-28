@@ -12,8 +12,8 @@ namespace WinUi3Test {
     public class ListData :INotifyPropertyChanged {
 
 
-        private ObservableCollection<String> _mylist = new() { "first", "second" };
-        public ObservableCollection<String> MyList { get => _mylist; set => SetProperty(ref _mylist, value); }
+        private ObservableCollection<MyLine> _mylist = new() { new MyLine() { TheValue = "first" }, new MyLine() { TheValue = "second" } };
+        public ObservableCollection<MyLine> MyList { get => _mylist; set => SetProperty(ref _mylist, value); }
 
 
 
