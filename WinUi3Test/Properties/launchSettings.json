@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "WinUi3Test (Package)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": true,
+      "doNotLaunchApp": true
+    },
+    "WinUi3Test (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
