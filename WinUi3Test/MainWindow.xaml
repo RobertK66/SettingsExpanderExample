@@ -9,22 +9,10 @@
     xmlns:labs="using:CommunityToolkit.WinUI.Controls" xmlns:system="using:System"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-        <labs:SettingsExpander Header="My String List" HeaderIcon="PreviewLink" ItemsSource="{x:Bind MyList,  Mode=TwoWay}"  MinWidth="200">
-            <!-- This ItemTemplate is needed to Bind the pure String List! The content has to be shown in SettingCards! -->
-            <!-- If removed then a  Visual Studio/Debugger run works and shows all strings in a minmal list BUT runnning as installed App crashes! -->
-            <labs:SettingsExpander.ItemTemplate>
-                <DataTemplate x:DataType="system:String">
-                    <labs:SettingsCard  Description="" Header="" >
-                        <TextBox Text="{Binding}" />
-                    </labs:SettingsCard>
-                </DataTemplate>
-            </labs:SettingsExpander.ItemTemplate>
-        </labs:SettingsExpander>
-
-        <Button Content="ADD" Click="Button_Click" />
-        <Button Content="CLR" Click="Button_Click_1" />
-
-    </StackPanel>
+    <NavigationView IsSettingsVisible="True" ItemInvoked="NavigationView_ItemInvoked">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Test" Icon="Library" />
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame" />
+    </NavigationView>
 </Window>

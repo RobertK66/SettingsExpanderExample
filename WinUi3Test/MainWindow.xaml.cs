@@ -14,8 +14,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Pdf;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -24,34 +26,22 @@ namespace WinUi3Test {
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window, INotifyPropertyChanged {
-
-        private ObservableCollection<String> _mylist = new() { "first", "second" };
-        public ObservableCollection<String> MyList { get => _mylist; set => SetProperty( ref _mylist, value); }
-
+    public sealed partial class MainWindow : Window {
 
         public MainWindow() {
             this.InitializeComponent();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private bool SetProperty<T>([NotNullIfNotNull(nameof(newValue))] ref T field, T newValue, [CallerMemberName] string propertyName = null) {
-            if (EqualityComparer<T>.Default.Equals(field, newValue)) {
-                return false;
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args) {
+            if (args.IsSettingsInvoked) {
+                ContentFrame.Navigate(typeof(BlankPage));
+            } else {
+                switch (args.InvokedItem) {
+                    case "Test":
+                        ContentFrame.Navigate(typeof(TestPage));
+                        break;
+                }
             }
-            field = newValue;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            return true;
-        }
-
-        private static int i = 0;
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            MyList.Add("next" + i++);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
-            MyList.Clear();
         }
     }
 }
