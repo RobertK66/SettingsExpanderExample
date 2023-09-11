@@ -11,7 +11,7 @@
 
     <NavigationView IsSettingsVisible="True" ItemInvoked="NavigationView_ItemInvoked">
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Test" Icon="Library" />
+            <NavigationViewItem Content="Test ItemsView" Icon="Library" />
         </NavigationView.MenuItems>
         <Frame x:Name="ContentFrame" />
     </NavigationView>

@@ -34,10 +34,10 @@ namespace WinUi3Test {
 
         private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args) {
             if (args.IsSettingsInvoked) {
-                ContentFrame.Navigate(typeof(BlankPage));
+                ContentFrame.Navigate(typeof(SettingsPage));
             } else {
                 switch (args.InvokedItem) {
-                    case "Test":
+                    case "Test ItemsView":
                         ContentFrame.Navigate(typeof(TestPage));
                         break;
                 }

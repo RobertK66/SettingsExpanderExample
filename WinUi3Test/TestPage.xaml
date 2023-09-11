@@ -11,12 +11,16 @@
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <!--  This works - at least in VS IDE - not so sure about installed app ( see https://github.com/CommunityToolkit/Windows/issues/191 ) ) -->
+        <!--  This works -->
         <!-- <ListView ItemsSource="{x:Bind MyList,  Mode=TwoWay}"></ListView> -->
        
         <!-- This gives crash with: "WinUi3Test.exe: WinRT originate error - 0x802B000A : 'Failed to assign to property 'Microsoft.UI.Xaml.Controls.ItemsRepeater.ItemTransitionProvider'" -->
+        <!-- The fix/workaround is to either remove the dependency to CommunityToolkit.WinUI.Controls.SettingsControls,
+             or to add the CommunityToolkit.WinUI.Controls.Segmented package manually !!! -->
         <ItemsView ItemsSource="{x:Bind MyList,  Mode=TwoWay}"></ItemsView>
 
+        
+        
         <Button Content="Add" Click="Button_Click" />
         <Button Content="Delete" Click="Button_Click_1" />
 
